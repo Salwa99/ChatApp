@@ -1,8 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
+<h1>ChatApp</h1>
 
 <%if current_user%>
+    <%= link_to "Start Chatting", "#"%>
     <%= button_to 'Logout', destroy_user_session_path, method: :delete%>
 <%else%>
     <%= link_to 'Login', new_user_session_path%>
