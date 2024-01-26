@@ -1,7 +1,7 @@
 <h1>ChatApp</h1>
 
 <%if current_user%>
-    <%= link_to "Start Chatting", "#"%>
+    <%= link_to "Start Chatting", rooms_path%>
     <%= button_to 'Logout', destroy_user_session_path, method: :delete%>
 <%else%>
     <%= link_to 'Login', new_user_session_path%>
