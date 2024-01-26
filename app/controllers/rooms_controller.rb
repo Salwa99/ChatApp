@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
     @room = Room.new
     @rooms = Room.public_rooms
 
-    @messages = Message.new
+    @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
 
     @users = User.all_except(current_user)
