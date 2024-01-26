@@ -2,8 +2,14 @@
     <h5> <%= current_user.email%> </h5>
     <br>
     <h4>Users</h4>
-    <%= render @users%>
+    <%= turbo_stream_from 'users'%>
+    <div id="users">
+        <%= render @users%>
+    </div>
     <br><br>
     <h4>Rooms</h4>
-    <%= render @rooms%>
+    <%= turbo_stream_from 'rooms'%>
+    <div id="rooms">
+        <%= render @rooms%>
+    </div>
 </div>
