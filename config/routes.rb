@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  resources :rooms do 
+  resources :rooms do
     resources :messages
   end
-  root "pages#home"
-  devise_for :users
-
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
+  root 'pages#home'
+  devise_for :users, controllers: {
+    sesions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+ 
   get 'user/:id', to: 'users#show', as: 'user'
+
 end
