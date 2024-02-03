@@ -31,5 +31,14 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <li class="list-group-item d-flex align-items-center  user_list_item">
+      <div class="icon-container">
+        <%= link_to image_tag(current_user.chat_avatar, class: 'chat_pfp') %>
+        <%= turbo_stream_from "user_status"%>
+      <div>
+          <%= render "users/status", user: current_user%>
+        </div>
+      </div>
+    </li>
   </div>
 </nav>
