@@ -1,9 +1,8 @@
-require "active_support/core_ext/integer/time"
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
-
   # Settings specified here will take precedence over those in c, portonfig/application.rb.
-config.action_controller.default_url_options = {host: "localhost", port: 3001}
+  config.action_controller.default_url_options = { host: 'localhost', port: 3000 }
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -20,13 +19,13 @@ config.action_controller.default_url_options = {host: "localhost", port: 3001}
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join("tmp/caching-dev.txt").exist?
+  if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      "Cache-Control" => "public, max-age=#{2.days.to_i}"
+      'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -74,5 +73,5 @@ config.action_controller.default_url_options = {host: "localhost", port: 3001}
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3001 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
