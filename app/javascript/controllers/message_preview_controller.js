@@ -17,6 +17,14 @@ export default class extends Controller {
       const reader = new FileReader();
       this.createAndDisplayFilePreviewElements(file, reader);
     }
+    this.toggleVisiblity();
+  }
+  /**
+   * Toggle the visibility of the preview div.
+   */
+  toggleVisiblity() {
+    let preview = document.getElementById("attachment-previews");
+    preview.classList.toggle("d-none");
   }
   /**
    * Creates and displays the preview elements for the file.
@@ -192,11 +200,18 @@ export default class extends Controller {
     target.parentNode.removeChild(target);
     filesArray.forEach((file) => dataTransfer.items.add(file));
     fileInput.files = dataTransfer.files;
+
+    if (filesArray.length === 0) {
+      this.toggleVisiblity();
+    }
   }
   /**
    * Clear all the preview elements after submit
    */
   clearPreviews() {
     document.getElementById("attachment-previews").innerHTML = "";
+
+    let preview = document.getElementById("attachment-previews");
+    preview.classList.add("d-none");
   }
 }
