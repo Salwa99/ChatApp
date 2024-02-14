@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :messages
   has_one_attached :avatar
   has_many :joinables, dependent: :destroy
-  has_many :joined_rooms, through: :joinables, source: :user
+  has_many :joined_rooms, through: :joinables, source: :room
 
   enum role: %i[user admin]
   enum status: %i[offline away online]

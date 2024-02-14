@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
   def show
     @single_room = Room.find(params[:id])
     @room = Room.new
-    @rooms = Room.search_rooms
+    @rooms = search_rooms
     @joined_rooms = current_user.joined_rooms
 
     @message = Message.new
@@ -29,6 +29,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.create(room_params)
+    redirect_to @room
   end
 
   def search
