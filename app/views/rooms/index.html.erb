@@ -23,8 +23,9 @@
       <h4> Rooms </h4>
       <%= turbo_stream_from "rooms" %>
       <%= render 'layouts/new_room_form' %>
+      <%= render 'rooms/search_form' %>
       <div id="rooms">
-        <%= render @rooms%>
+        <%= render @joined_rooms%>
       </div>
     </div>
     <div id="room_container"

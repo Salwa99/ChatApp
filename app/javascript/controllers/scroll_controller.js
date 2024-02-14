@@ -9,21 +9,22 @@ export default class extends Controller {
     console.log("Connected scroll");
     const messages = document.getElementById("messages");
     messages.addEventListener("DOMNodeInserted", this.resetScroll);
+    this.resetScrollWithoutThreshold(messages);
   }
 
   disconnect() {
     console.log("Disconnected");
   }
- 
+
   resetScroll() {
     const bottomOfScroll = messages.scrollHeight - messages.clientHeight;
     const upperScrollThreshold = bottomOfScroll - 500;
-    
+
     if (messages.scrollTop > upperScrollThreshold) {
       messages.scrollTop = messages.scrollHeight - messages.clientHeight;
     }
   }
-  
+
   resetScrollWithoutThreshold(messages) {
     messages.scrollTop = messages.scrollHeight - messages.clientHeight;
   }
