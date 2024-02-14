@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :messages
   has_one_attached :avatar
   has_many :joinables, dependent: :destroy
-  has_many :joined_users, through: :joinables, source: :user
+  has_many :joined_rooms, through: :joinables, source: :user
 
   enum role: %i[user admin]
   enum status: %i[offline away online]
@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   def has_joined_room(room)
-    joined_rooms.includes?(room)
+    joined_rooms.include?(room)
   end
 
   def status_to_css
