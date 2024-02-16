@@ -87,3 +87,8 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.last-message {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 5px;
+}
