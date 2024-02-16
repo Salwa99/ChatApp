@@ -1,4 +1,6 @@
-<li class="list-group-item d-flex align-items-center justify-content-between room_list_item">
-  <%= link_to room.name, room, data: {turbo: "false"}, class: "ms-2 me-auto" %>
-  <%= render 'rooms/joinable_link', room: room %>
-</li>
+<%= turbo_frame_tag dom_id(room) do %>
+  <%= render 'rooms/room_container',
+        room: room,
+        last_message:  latest_message, 
+        user: user %>
+<%end%>
