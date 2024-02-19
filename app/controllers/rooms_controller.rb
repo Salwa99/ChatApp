@@ -8,6 +8,8 @@ class RoomsController < ApplicationController
     @rooms = search_rooms
     @joined_rooms = current_user.joined_rooms.order('last_message_at DESC')
     @users = User.all_except(current_user)
+
+    current_user.update(current_room: nil)
     render 'index'
   end
 
@@ -23,6 +25,7 @@ class RoomsController < ApplicationController
     @pagy, messages = pagy(pagy_messages, items: 10)
     @messages = messages.reverse
 
+    current_user.update(current_room: @single_room)
     @users = User.all_except(current_user)
     render 'index'
   end

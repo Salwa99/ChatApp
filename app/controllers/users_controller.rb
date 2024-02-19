@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @single_room = Room.where(name: @room_name).first || Room.create_private_room([@user, current_user], @room_name)
 
     @message = Message.new
+    current_user.update(current_room: @single_room)
     
     pagy_messages = @single_room.messages.includes(:user).order(created_at: :desc)
     @pagy, messages = pagy(pagy_messages, items: 10)

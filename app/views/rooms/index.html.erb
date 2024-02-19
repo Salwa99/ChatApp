@@ -24,7 +24,7 @@
       <%= turbo_stream_from "rooms" %>
       <%= render 'layouts/new_room_form' %>
       <%= render 'rooms/search_form' %>
-      <div id="rooms">
+      <div id="rooms" data-controller = "room-list">
         <%= render "rooms/rooms", rooms: @joined_rooms, user: current_user%>
       </div>
     </div>
