@@ -1,6 +1,10 @@
-<% rooms.each do |room| %>
-  <%= render 'rooms/room',
-        room: room,
-        last_message: room.latest_message, 
-        user: user %>
+<% if rooms.present? %>
+  <% rooms.each do |room| %>
+    <%= render 'rooms/room',
+          room: room,
+          last_message: room.latest_message, 
+          user: user %>
+  <% end %>
+<% else %>
+  <p>No rooms available.</p>
 <% end %>
